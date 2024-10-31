@@ -52,19 +52,3 @@ class Account:
     def __str__(self):
         return '{' + str(self.account_number) + ',' + str(self.type) + ',' + str(self.account_name) + ',' + str(self.balance) + '}'
 
-account1 = Account("0000", "saving", "David Patterson", 1000)
-account2 = Account("0001", "checking", "John Hennessy", 2000)
-account3 = Account("0003", "saving", "Mark Hill", 3000)
-account4 = Account("0004", "saving", "David Wood", 4000)
-account5 = Account("0004", "saving", "David Wood", 4000)
-my_account_DB = AccountDB()
-my_account_DB.insert(account1)
-my_account_DB.insert(account2)
-my_account_DB.insert(account3)
-my_account_DB.insert(account4)
-my_account_DB.insert(account5)
-
-print(my_account_DB.__str__())
-my_account_DB.delete('0000')
-print(my_account_DB.__str__())
-
