@@ -78,14 +78,13 @@ def filter(condition, dict_list):
 x = filter(lambda x: float(x['latitude']) >= 60.0, cities)
 for item in x:
     print(item)
-
+# print(cities)
 # Let's write a function to do aggregation given an aggregation function and an aggregation key
 def aggregate(aggregation_key, aggregation_function, dict_list):
-    
-    pass
 
 # Let's write code to
 # - print the average temperature for all the cities in Italy
 # - print the average temperature for all the cities in Sweden
 # - print the min temperature for all the cities in Italy
 # - print the max temperature for all the cities in Sweden
+
