@@ -81,10 +81,14 @@ for item in x:
 # print(cities)
 # Let's write a function to do aggregation given an aggregation function and an aggregation key
 def aggregate(aggregation_key, aggregation_function, dict_list):
-
+    aggregated_list = [float(i[aggregation_key]) for i in dict_list]
+    print(aggregation_function(aggregated_list))
 # Let's write code to
 # - print the average temperature for all the cities in Italy
+aggregate('temperature', lambda i: sum(i)/len(i), filter(lambda i: i['country'] == 'Italy', cities))
 # - print the average temperature for all the cities in Sweden
+aggregate('temperature', lambda i: sum(i)/len(i), filter(lambda i: i['country'] == 'Sweden', cities))
 # - print the min temperature for all the cities in Italy
+aggregate('temperature', lambda i: min(i), filter(lambda i: i['country'] == 'Italy', cities))
 # - print the max temperature for all the cities in Sweden
-
+aggregate('temperature', lambda i: max(i), filter(lambda i: i['country'] == 'Italy', cities))

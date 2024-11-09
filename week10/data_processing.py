@@ -41,14 +41,23 @@ print()
 
 # Let's write a function to filter out only items that meet the condition
 def filter(condition, dict_list):
-    pass
+    filtered_list = []
+    for item in dict_list:
+        if condition(item):
+            filtered_list.append(item)
+    return filtered_list
 
 # Let's write a function to do aggregation given an aggregation function and an aggregation key
 def aggregate(aggregation_key, aggregation_function, dict_list):
-    pass
+    aggregated_list = [float(i[aggregation_key]) for i in dict_list]
+    print(aggregation_function(aggregated_list))
 
 # Let's write code to
 # - print the average temperature for all the cities in Italy
+aggregate('temperature', lambda i: sum(i)/len(i), filter(lambda i: i['country'] == 'Italy', cities))
 # - print the average temperature for all the cities in Sweden
+aggregate('temperature', lambda i: sum(i)/len(i), filter(lambda i: i['country'] == 'Sweden', cities))
 # - print the min temperature for all the cities in Italy
+aggregate('temperature', lambda i: min(i), filter(lambda i: i['country'] == 'Italy', cities))
 # - print the max temperature for all the cities in Sweden
+aggregate('temperature', lambda i: max(i), filter(lambda i: i['country'] == 'Italy', cities))
